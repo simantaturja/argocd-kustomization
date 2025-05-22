@@ -2,5 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app1
+  namespace: editorial
 spec:
   replicas: 1
