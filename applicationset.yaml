@@ -10,11 +10,15 @@ spec:
           - name: app1
             repoURL: https://github.com/simantaturja/argocd-app
             path: manifests
-            namespace: app1
+            namespace: editorial
           - name: app2
             repoURL: https://github.com/simantaturja/argocd-app2
             path: manifests
-            namespace: app2
+            namespace: subscription
+          - name: app3
+            repoURL: https://github.com/simantaturja/argocd-sample-python-app
+            path: manifests
+            namespace: editorial
   template:
     metadata:
       name: '{{name}}'
