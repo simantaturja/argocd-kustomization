@@ -1,3 +1,2 @@
 resources:
-  - github.com/simantaturja/argocd-app/manifests?ref=master
-  - app2/overlays/dev
+  - dev/blue
