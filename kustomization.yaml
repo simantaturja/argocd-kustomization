@@ -1,0 +1,3 @@
+resources:
+  - app1/overlays/dev
+  - app2/overlays/dev
