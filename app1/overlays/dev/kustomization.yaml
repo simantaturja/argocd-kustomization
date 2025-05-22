@@ -1,7 +1,0 @@
-resources:
-  - deployment.yaml
-  - service.yaml
-
-namePrefix: dev-
-patches:
-  - path: replica-patch.yaml

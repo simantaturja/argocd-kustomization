@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: multi-repo-apps
+spec:
+  generators:
+    - list:
+        elements:
+          - name: app1
+            repoURL: https://github.com/simantaturja/argocd-app
+            path: manifests
+            namespace: app1
+          - name: app2
+            repoURL: https://github.com/simantaturja/argocd-app2
+            path: manifests
+            namespace: app2
+  template:
+    metadata:
+      name: '{{name}}'
+    spec:
+      project: default
+      source:
+        repoURL: '{{repoURL}}'
+        targetRevision: HEAD
+        path: '{{path}}'
+        kustomize: {}
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
